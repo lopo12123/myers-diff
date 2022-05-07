@@ -1,7 +1,12 @@
 {
-    "name": "myers-diff",
+    "name": "diff-myers",
     "version": "1.0.0",
     "description": "implementation of myers diff algorithm",
+    "keywords": [
+        "diff",
+        "myers",
+        "typescript"
+    ],
     "main": "index.js",
     "author": "lopo",
     "license": "MIT",
