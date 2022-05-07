@@ -33,14 +33,14 @@ type SingleOperate = {
  * @example
  * const prev = "AABBCC"
  * const curr = "ABCABC"
- * const ops = operate_pipe(prev, curr)
+ * const ops = operate_list(prev, curr)
  * console.log(ops)
  * // 输出:
  * [ 3, 1, 1, 3, 3, 2, 3, 2 ]
  * // 即:
  * [ 'MOVE', 'INSERT', 'INSERT', 'MOVE', 'MOVE', 'DELETE', 'MOVE', 'DELETE' ]
  */
-const operate_pipe = (prev: string, curr: string): OPERATES[] => {
+const operate_list = (prev: string, curr: string): OPERATES[] => {
     const n = prev.length
     const m = curr.length
     let max = m + n
@@ -146,7 +146,7 @@ const operate_pipe = (prev: string, curr: string): OPERATES[] => {
  * ]
  */
 const generate_operate_list__single = (prev: string, curr: string): SingleOperate[] => {
-    const ops = operate_pipe(prev, curr)
+    const ops = operate_list(prev, curr)
     const res: SingleOperate[] = []
 
     let srcIndex = 0, dstIndex = 0
@@ -204,7 +204,7 @@ const generate_operate_list__single = (prev: string, curr: string): SingleOperat
  * ]
  */
 const generate_operate_list__group = (prev: string, curr: string): SingleOperate[] => {
-    const ops = operate_pipe(prev, curr)
+    const ops = operate_list(prev, curr)
     const res: SingleOperate[] = []
 
     let srcIndex = 0, dstIndex = 0
@@ -250,7 +250,7 @@ const generate_operate_list__group = (prev: string, curr: string): SingleOperate
 
 export {
     OPERATES,
-    operate_pipe,
+    operate_list,
     generate_operate_list__single,
     generate_operate_list__group
 }
