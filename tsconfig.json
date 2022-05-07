@@ -78,6 +78,5 @@
     },
     "include": [
         "./lib/*.ts",
-        "./test/*.ts"
     ]
 }
