@@ -1,10 +1,10 @@
 {
-    "name": "myers-diff-ts",
+    "name": "myers-diff",
     "version": "1.0.0",
+    "description": "implementation of myers diff algorithm",
     "main": "index.js",
     "author": "lopo",
     "license": "MIT",
-    "private": true,
     "scripts": {
         "build": "tsc"
     },
