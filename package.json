@@ -8,6 +8,11 @@
     "scripts": {
         "build": "tsc"
     },
+    "files": [
+        "lib",
+        "index.js",
+        "index.d.ts"
+    ],
     "devDependencies": {
         "@types/node": "14.17.5"
     }
