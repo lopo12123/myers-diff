@@ -25,6 +25,7 @@ type SingleOperate = {
  * @description 获得按顺序执行的操作数组(数字标识)
  * @see generate_operate_list__single
  * @see generate_operate_list__group
+ * @see generate_operate_list__overview
  * @description `1: INSERT` - 从curr串中插入一个字符
  * @description `2: DELETE` - 删除prev串中的字符
  * @description `3: MOVE` - 复制prev中的字符(内容不变, 可能存在移位)
@@ -247,10 +248,53 @@ const generate_operate_list__group = (prev: string, curr: string): SingleOperate
 
     return res
 }
+/**
+ * @description 获得按顺序执行操作前后的比对串
+ * @see operate_list
+ * @param prev 原字符串
+ * @param curr 现字符串
+ * @example
+ * const prev = "AABBCC"
+ * const curr = "ABCABC"
+ * const [str_result, str_label] = generate_operate_list__overview(prev, curr)
+ * console.log(str_result)
+ * console.log(str_label)
+ */
+const generate_operate_list__overview = (prev: string, curr: string): [result: string, label: string] => {
+    const ops = operate_list(prev, curr)
+    let result = ''
+    let label = ''
+
+    let srcIndex = 0, dstIndex = 0
+
+    ops.forEach(op => {
+        switch(op) {
+            case OPERATES.INSERT:
+                result += curr[dstIndex]
+                label += '+'
+                dstIndex += 1
+                break
+            case OPERATES.MOVE:
+                result += prev[srcIndex]
+                label += ' '
+                srcIndex += 1
+                dstIndex += 1
+                break
+            case OPERATES.DELETE:
+                result += prev[srcIndex]
+                label += '-'
+                srcIndex += 1
+                break
+        }
+    })
+
+    return [result, label]
+}
 
 export {
     OPERATES,
     operate_list,
     generate_operate_list__single,
-    generate_operate_list__group
+    generate_operate_list__group,
+    generate_operate_list__overview
 }
