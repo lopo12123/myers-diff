@@ -43,7 +43,7 @@ type SingleOperate = {
 const operate_list = (prev: string, curr: string): OPERATES[] => {
     const n = prev.length
     const m = curr.length
-    let max = m + n
+    const max = m + n
     const trace: { [k: number]: number }[] = []
 
     let x: number, y: number
@@ -54,9 +54,9 @@ const operate_list = (prev: string, curr: string): OPERATES[] => {
 
         if(d === 0) {
             let t = 0
-            while (prev.length > t && curr.length > t && prev[t] === curr[t]) t++
+            while (n > t && m > t && prev[t] === curr[t]) t++
             v[0] = t
-            if(t === prev.length && t === curr.length) break
+            if(t === n && t === m) break
             continue
         }
 
@@ -86,7 +86,7 @@ const operate_list = (prev: string, curr: string): OPERATES[] => {
     }
 
     // 反向回溯
-    let script: OPERATES[] = []
+    let operates: OPERATES[] = []
     x = n
     y = m
     let k: number, prevK: number, prevX: number, prevY: number
@@ -102,13 +102,13 @@ const operate_list = (prev: string, curr: string): OPERATES[] => {
         prevY = prevX - prevK
 
         while (x > prevX && y > prevY) {
-            script.push(OPERATES.MOVE)
+            operates.push(OPERATES.MOVE)
             x -= 1
             y -= 1
         }
 
-        if(x === prevX) script.push(OPERATES.INSERT)
-        else script.push(OPERATES.DELETE)
+        if(x === prevX) operates.push(OPERATES.INSERT)
+        else operates.push(OPERATES.DELETE)
 
         x = prevX
         y = prevY
@@ -116,11 +116,11 @@ const operate_list = (prev: string, curr: string): OPERATES[] => {
 
     if(trace[0][0] !== 0) {
         for (let i = 0; i < trace[0][0]; i++) {
-            script.push(OPERATES.MOVE)
+            operates.push(OPERATES.MOVE)
         }
     }
 
-    return script.reverse()
+    return operates.reverse()
 }
 
 /**
