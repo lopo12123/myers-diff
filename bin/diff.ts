@@ -104,7 +104,7 @@ const do_diff = () => {
         console.log('\n\tin_type: [ -s | -f ] string or file as input')
         console.log('\targ1, arg2: string1/string2 or path_to_file1/path_to_file2')
         console.log('\tout_type: [ -line | -single | -group ] in-line / word-by-word / by-group')
-        console.log('\tif_write_file: [ -w ](optional) if exist, the output will write into an file too.')
+        console.log('\tif_write_file: [ -w ](optional) if exists, the output will write into an file too.')
     }
 }
 
