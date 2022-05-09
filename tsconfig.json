@@ -78,6 +78,6 @@
     },
     "include": [
         "./lib/index.ts",
-        "./diff.ts"
+        "./bin/diff.ts"
     ]
 }
