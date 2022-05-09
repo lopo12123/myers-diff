@@ -1,6 +1,6 @@
 {
     "name": "diff-myers",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "implementation of myers diff algorithm",
     "keywords": [
         "diff",
@@ -17,6 +17,7 @@
         "build": "tsc"
     },
     "files": [
+        "bin",
         "lib",
         "index.js",
         "index.d.ts"
