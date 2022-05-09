@@ -77,6 +77,7 @@
         /* Disallow inconsistently-cased references to the same file. */
     },
     "include": [
-        "./lib/index.ts"
+        "./lib/index.ts",
+        "./diff.ts"
     ]
 }
