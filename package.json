@@ -8,6 +8,9 @@
         "typescript"
     ],
     "main": "index.js",
+    "bin": {
+        "diff": "./bin/diff.js"
+    },
     "author": "lopo",
     "license": "MIT",
     "scripts": {
